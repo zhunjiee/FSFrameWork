@@ -31,8 +31,15 @@
  *  统一设置所有item的属性
  */
 - (void)setUpTabBarItemAttrs {
+#warning - pop时出现位置偏移动画的bug
+    
     // 解决ios12.1 tabBar 中的图标及文字在pop时出现位置偏移动画的bug
     [[UITabBar appearance] setTranslucent:NO];
+    /*
+     这个问题是 iOS 12.1 Beta 2 引入的问题，只要 UITabBar 是磨砂的，并且 push viewController 时 hidesBottomBarWhenPushed = YES 则手势返回的时候就会触发，出现这个现象的直接原因是 tabBar 内的按钮 UITabBarButton 被设置了错误的 frame，frame.size 变为 (0, 0) 导致的。
+     */
+    
+    
     
     // 通过appearance统一设置TabBar控制器的文字
     UITabBarItem *item = [UITabBarItem appearance];

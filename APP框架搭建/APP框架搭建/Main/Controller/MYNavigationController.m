@@ -57,12 +57,6 @@
     }
     
     [super pushViewController:viewController animated:animated];
-    
-    // 解决TabBar在跳转的时候位移，导致返回的时候有一个很难看的动画的问题
-    // 修改tabBra的frame
-//    CGRect frame = self.tabBarController.tabBar.frame;
-//    frame.origin.y = [UIScreen mainScreen].bounds.size.height - frame.size.height;
-//    self.tabBarController.tabBar.frame = frame;
 }
 
 - (void)goBack {
