@@ -14,9 +14,13 @@
 
 @implementation MYNavigationController
 + (void)initialize {
-    // 设置导航栏背景图片
+    // 去除导航栏的毛玻璃效果
     UINavigationBar *bar = [UINavigationBar appearance];
-    [bar setBackgroundImage:[UIImage imageNamed:@"nav-background"] forBarMetrics:UIBarMetricsDefault];
+    // 方式一：设置导航栏背景图片
+//    [bar setBackgroundImage:[UIImage imageNamed:@"nav-background"] forBarMetrics:UIBarMetricsDefault];
+    // 方式二：设置背景色
+    bar.translucent = NO;
+    
     // 设置标题文字
     NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
     attrs[NSFontAttributeName] = [UIFont boldSystemFontOfSize:20];
